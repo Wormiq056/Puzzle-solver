@@ -8,6 +8,12 @@ OPERATION_RIGHT = 'VPRAVO'
 
 
 class Node:
+    """
+    Body of "uzol" which stores necessery information.
+    matrix = current state of board
+    parent = pointer to its parent node from which matrix was created
+    heurisitc_value = calculated heuristic from end point of matrix
+    """
     def __init__(self, matrix: np.array, parent, last_operator: str, heuristic_value: int) -> None:
         self.matrix = np.array(matrix)
         self.parent = parent
@@ -16,6 +22,10 @@ class Node:
 
 
 class Hashmaps:
+    """
+    class that stored processed and still unprocessed_nodes in dictionaries
+    key to dictionary is a hash that is uniquely generated from every matrix
+    """
     processed_nodes = {}
     unprocessed_nodes = {}
 
@@ -46,6 +56,11 @@ class Hashmaps:
         return self.processed_nodes.get(hash)
 
     def find_best_next_node(self) -> Node:
+        """
+        method that find the best next node by sorting unprocessed_nodes by heuristic value
+        then return that node with lowest heuristic value to be processed
+        :return: Node with lowest heurisitc value
+        """
         lowest_heuristic_node = min(self.unprocessed_nodes.values(), key=attrgetter('heuristic_value'))
         hash = self._create_hash_from_matrix(lowest_heuristic_node.matrix)
         self.unprocessed_nodes.pop(hash)
@@ -54,6 +69,10 @@ class Hashmaps:
 
 class Helper:
 
+    """
+    class that help with heuristic calculations, string manipulations,
+    creating children from possible operations on given matrix and creating nodes
+    """
     def __init__(self, end_matrix: np.array, hashmaps: Hashmaps) -> None:
         self.hashmaps = hashmaps
         self.end = end_matrix
@@ -127,7 +146,12 @@ class Helper:
 
 
 class Puzzle:
-
+    """
+    class which takes given matrix and wanted matrix.
+    solves given problem whether it is possible or not and gives and output to the console:
+    1. if its solvable it prints the correct order of needed operations
+    2. if its not solvable it informs that wanted matrix its not possible to achieve
+    """
     def __init__(self, start: list, end: list) -> None:
         self.start = np.array(start)
         self.end = np.array(end)
