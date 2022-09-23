@@ -36,12 +36,12 @@ class Hashmaps:
         self.unprocessed_nodes = {}
 
     def _create_hash_from_matrix(self, matrix: np.array) -> str:
-        hash =(sha256(matrix).hexdigest())
+        hash = (sha256(matrix).hexdigest())
         # hash = ''
         # for _ in matrix:
         #     for element in _:
         #         hash += element
-        #print(hash)
+        # print(hash)
         return hash
 
     def add_processed(self, node: Node) -> None:
@@ -133,29 +133,27 @@ class Helper:
         index_y, index_x = np.where(parent_node.matrix == 'm')
         new_matrix = parent_node.matrix.copy()
         if possible_operator == OPERATION_UP:
-            new_matrix[index_y[0]][index_x[0]], new_matrix[index_y[0] + 1][index_x[0]] = new_matrix[index_y[0] + 1][
-                                                                                             index_x[0]], \
-                                                                                         new_matrix[index_y[0]][
-                                                                                             index_x[0]]
+            a = new_matrix[index_y[0]][index_x[0]]
+            new_matrix[index_y[0]][index_x[0]] = new_matrix[index_y[0] + 1][index_x[0]]
+            new_matrix[index_y[0] + 1][index_x[0]] = a
             return self.create_node(new_matrix, parent_node, OPERATION_UP)
+
         if possible_operator == OPERATION_DOWN:
-            new_matrix[index_y[0]][index_x[0]], new_matrix[index_y[0] - 1][index_x[0]] = new_matrix[index_y[0] - 1][
-                                                                                             index_x[0]], \
-                                                                                         new_matrix[index_y[0]][
-                                                                                             index_x[0]]
+            a = new_matrix[index_y[0]][index_x[0]]
+            new_matrix[index_y[0]][index_x[0]] = new_matrix[index_y[0] - 1][index_x[0]]
+            new_matrix[index_y[0] - 1][index_x[0]] = a
             return self.create_node(new_matrix, parent_node, OPERATION_DOWN)
 
         if possible_operator == OPERATION_LEFT:
-            new_matrix[index_y[0]][index_x[0]], new_matrix[index_y[0]][index_x[0] + 1] = new_matrix[index_y[0]][
-                                                                                             index_x[0] + 1], \
-                                                                                         new_matrix[index_y[0]][
-                                                                                             index_x[0]]
+            a = new_matrix[index_y[0]][index_x[0]]
+            new_matrix[index_y[0]][index_x[0]] = new_matrix[index_y[0]][index_x[0] + 1]
+            new_matrix[index_y[0]][index_x[0] + 1] = a
             return self.create_node(new_matrix, parent_node, OPERATION_LEFT)
+
         if possible_operator == OPERATION_RIGHT:
-            new_matrix[index_y[0]][index_x[0]], new_matrix[index_y[0]][index_x[0] - 1] = new_matrix[index_y[0]][
-                                                                                             index_x[0] - 1], \
-                                                                                         new_matrix[index_y[0]][
-                                                                                             index_x[0]]
+            a = new_matrix[index_y[0]][index_x[0]]
+            new_matrix[index_y[0]][index_x[0]] = new_matrix[index_y[0]][index_x[0] - 1]
+            new_matrix[index_y[0]][index_x[0] - 1] = a
             return self.create_node(new_matrix, parent_node, OPERATION_RIGHT)
 
     def process_node(self, current_node: Node) -> None:
@@ -223,7 +221,7 @@ def main():
     # helper.create_node_from_operator(test_node, OPERATION_RIGHT, np_array)
     # maps = Hashmaps()
     # maps._create_hash_from_matrix(np_array)
-    puzzle = Puzzle(np_array, array2, 1)
+    puzzle = Puzzle(np_array, array2, 2)
 
 
 if __name__ == '__main__':
