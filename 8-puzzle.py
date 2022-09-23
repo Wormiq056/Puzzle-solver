@@ -1,6 +1,7 @@
 import numpy as np
-from operator import attrgetter
 import cProfile
+from hashlib import sha256
+from operator import attrgetter
 
 OPERATION_DOWN = 'DOLE'
 OPERATION_UP = 'HORE'
@@ -15,6 +16,7 @@ class Node:
     parent = pointer to its parent node from which matrix was created
     heurisitc_value = calculated heuristic from end point of matrix
     """
+
     def __init__(self, matrix: np.array, parent, last_operator: str, heuristic_value: int) -> None:
         self.matrix = np.array(matrix)
         self.parent = parent
@@ -27,16 +29,19 @@ class Hashmaps:
     class that stored processed and still unprocessed_nodes in dictionaries
     key to dictionary is a hash that is uniquely generated from every matrix
     """
+
     def __init__(self):
 
         self.processed_nodes = {}
         self.unprocessed_nodes = {}
 
     def _create_hash_from_matrix(self, matrix: np.array) -> str:
-        hash = ''
-        for _ in matrix:
-            for element in _:
-                hash += element
+        hash =(sha256(matrix).hexdigest())
+        # hash = ''
+        # for _ in matrix:
+        #     for element in _:
+        #         hash += element
+        #print(hash)
         return hash
 
     def add_processed(self, node: Node) -> None:
@@ -71,21 +76,37 @@ class Hashmaps:
 
 
 class Helper:
-
     """
     class that help with heuristic calculations, string manipulations,
     creating children from possible operations on given matrix and creating nodes
     """
-    def __init__(self, end_matrix: np.array, hashmaps: Hashmaps) -> None:
+
+    def __init__(self, end_matrix: np.array, hashmaps: Hashmaps, heurisitc_config: int) -> None:
         self.hashmaps = hashmaps
         self.end = end_matrix
+        if heurisitc_config == 1:
+            self.calc_heuristic = self.heuristic_1
+        else:
+            self.calc_heuristic = self.heurisitc_2
 
-    def calc_heuristic(self, current_matrix: np.array) -> int:
+    def heuristic_1(self, current_matrix: np.array) -> int:
         heuristic = 0
         for i in range(len(current_matrix)):
             for j in range(len(current_matrix)):
                 if current_matrix[i][j] != self.end[i][j]:
                     heuristic += 1
+        return heuristic
+
+    def heurisitc_2(self, current_matrix: np.array) -> int:
+        heuristic = 0
+        for i in range(len(current_matrix)):
+            for j in range(len(current_matrix[i])):
+                if current_matrix[i][j] == 'm':
+                    continue
+                else:
+                    index_y, index_x = np.where(self.end == current_matrix[i][j])
+                    heuristic = heuristic + abs(index_y[0] - i) + abs(index_x[0] - j)
+
         return heuristic
 
     def find_possible_operators(self, matrix: np.array) -> list:
@@ -155,11 +176,12 @@ class Puzzle:
     1. if its solvable it prints the correct order of needed operations
     2. if its not solvable it informs that wanted matrix its not possible to achieve
     """
-    def __init__(self, start: list, end: list) -> None:
+
+    def __init__(self, start: np.array, end: np.array, heuristic_config: int) -> None:
         self.start = np.array(start)
         self.end = np.array(end)
         self.hashmaps = Hashmaps()
-        self.helper = Helper(self.end, self.hashmaps)
+        self.helper = Helper(self.end, self.hashmaps, heuristic_config)
         self.solve()
 
     def solve(self) -> None:
@@ -168,7 +190,7 @@ class Puzzle:
         root_node = Node(self.start, None, "start", root_heuristic)
         self._solve(root_node)
 
-    def _solve(self, current_node: Node) ->None:
+    def _solve(self, current_node: Node) -> None:
         found_solution = True
         while current_node.heuristic_value != 0:
             self.helper.process_node(current_node)
@@ -180,27 +202,28 @@ class Puzzle:
         if found_solution == True:
             solution = self._create_solution(current_node)
         else:
-            print("Solution for {} array to move into {} array does not exist!".format(self.start,self.end))
+            print("Solution for {} array to move into {} array does not exist!".format(self.start, self.end))
 
-    def _create_solution(self, node : Node) -> list:
+    def _create_solution(self, node: Node) -> list:
         solution = []
         while node.last_operator != 'start':
-            solution.insert(0,node.last_operator)
+            solution.insert(0, node.last_operator)
             node = node.parent
         print(solution)
+        return solution
 
 
 def main():
     np_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 'm']])
+    # array = np.array([[7, 8, 6], [5, 4, 3], [2, 'm', 1]])
     array2 = np.array([[1, 2, 3], [4, 6, 8], [7, 5, 'm']])  # existuje solution
-    #array2 = np.array([[7,8,6],[5,4,3],[2,'m',1]]) #neexistuje solution
+    # array2 = np.array([[7,8,6],[5,4,3],[2,'m',1]]) #neexistuje solution
     # test_node = Node(np_array, None, 'vlavo', 0)
-
+    # array2 = np.array([[3,2,1,'m'],[11,6,5,4],[7,10,9,8]])
     # helper.create_node_from_operator(test_node, OPERATION_RIGHT, np_array)
-
     # maps = Hashmaps()
     # maps._create_hash_from_matrix(np_array)
-    puzzle = Puzzle(np_array, array2)
+    puzzle = Puzzle(np_array, array2, 1)
 
 
 if __name__ == '__main__':
