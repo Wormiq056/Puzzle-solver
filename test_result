@@ -1,0 +1,68 @@
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   483837    0.366    0.000    5.308    0.000 8-puzzle.py:106(create_node)
+   483837    2.789    0.000    9.223    0.000 8-puzzle.py:111(create_node_from_operator)
+   181439    0.853    0.000   19.716    0.000 8-puzzle.py:140(process_node)
+        1    0.000    0.000  260.003  260.003 8-puzzle.py:158(__init__)
+        1    0.001    0.001  260.003  260.003 8-puzzle.py:165(solve)
+        1    0.400    0.400  260.003  260.003 8-puzzle.py:171(_solve)
+   483838    0.277    0.000    0.613    0.000 8-puzzle.py:18(__init__)
+        1    0.000    0.000  260.003  260.003 8-puzzle.py:193(main)
+        1    0.000    0.000    0.000    0.000 8-puzzle.py:30(__init__)
+  1088635    5.887    0.000    5.887    0.000 8-puzzle.py:35(_create_hash_from_matrix)
+   181439    0.164    0.000    1.042    0.000 8-puzzle.py:42(add_processed)
+   483837    0.342    0.000    3.131    0.000 8-puzzle.py:46(check_processed)
+   241920    0.298    0.000    1.403    0.000 8-puzzle.py:53(add_unprocessed)
+   181439    0.448    0.000  239.849    0.001 8-puzzle.py:61(find_best_next_node)
+        1    0.000    0.000    0.000    0.000 8-puzzle.py:79(__init__)
+   483838    4.190    0.000    4.330    0.000 8-puzzle.py:83(calc_heuristic)
+   181439    3.439    0.000    4.045    0.000 8-puzzle.py:91(find_possible_operators)
+   665276    0.368    0.000    1.370    0.000 <__array_function__ internals>:177(where)
+        1    0.004    0.004  260.007  260.007 <string>:1(<module>)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:1575(_array_str_implementation)
+       18    0.000    0.000    0.000    0.000 arrayprint.py:397(repr_format)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:403(_get_formatdict)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:423(<lambda>)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:452(_get_format_function)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:506(wrapper)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:523(_array2string)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:561(array2string)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:64(_make_options_dict)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:72(<dictcomp>)
+       18    0.000    0.000    0.000    0.000 arrayprint.py:739(_extendLine)
+       18    0.000    0.000    0.000    0.000 arrayprint.py:753(_extendLine_pretty)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:780(_formatArray)
+     26/2    0.000    0.000    0.000    0.000 arrayprint.py:789(recurser)
+   665276    0.109    0.000    0.109    0.000 multiarray.py:341(where)
+        2    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+        1    0.000    0.000  260.007  260.007 {built-in method builtins.exec}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+       10    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+  2661256    0.223    0.000    0.223    0.000 {built-in method builtins.len}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.locals}
+        6    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+   181439  237.895    0.001  237.895    0.001 {built-in method builtins.min}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+       18    0.000    0.000    0.000    0.000 {built-in method builtins.repr}
+   483842    0.336    0.000    0.336    0.000 {built-in method numpy.array}
+        2    0.000    0.000    0.000    0.000 {built-in method numpy.asarray}
+   665276    0.893    0.000    0.893    0.000 {built-in method numpy.core._multiarray_umath.implement_array_function}
+        2    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+   483837    0.054    0.000    0.054    0.000 {method 'append' of 'list' objects}
+        2    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
+   483837    0.281    0.000    0.281    0.000 {method 'copy' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        2    0.000    0.000    0.000    0.000 {method 'discard' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+   483837    0.245    0.000    0.245    0.000 {method 'get' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+   181439    0.117    0.000    0.117    0.000 {method 'pop' of 'dict' objects}
+        8    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+       18    0.000    0.000    0.000    0.000 {method 'splitlines' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+   181439    0.029    0.000    0.029    0.000 {method 'values' of 'dict' objects}
+
+
+
+Process finished with exit code 0

@@ -1,5 +1,6 @@
 import numpy as np
 from operator import attrgetter
+import cProfile
 
 OPERATION_DOWN = 'DOLE'
 OPERATION_UP = 'HORE'
@@ -26,8 +27,10 @@ class Hashmaps:
     class that stored processed and still unprocessed_nodes in dictionaries
     key to dictionary is a hash that is uniquely generated from every matrix
     """
-    processed_nodes = {}
-    unprocessed_nodes = {}
+    def __init__(self):
+
+        self.processed_nodes = {}
+        self.unprocessed_nodes = {}
 
     def _create_hash_from_matrix(self, matrix: np.array) -> str:
         hash = ''
@@ -187,14 +190,18 @@ class Puzzle:
         print(solution)
 
 
-np_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 'm']])
-#array2 = np.array([[1, 2, 3], [4, 6, 8], [7, 5, 'm']]) #existuje solution
-array2 = np.array([[7,8,6],[5,4,3],[2,'m',1]]) #neexistuje solution
-# test_node = Node(np_array, None, 'vlavo', 0)
+def main():
+    np_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 'm']])
+    array2 = np.array([[1, 2, 3], [4, 6, 8], [7, 5, 'm']])  # existuje solution
+    #array2 = np.array([[7,8,6],[5,4,3],[2,'m',1]]) #neexistuje solution
+    # test_node = Node(np_array, None, 'vlavo', 0)
+
+    # helper.create_node_from_operator(test_node, OPERATION_RIGHT, np_array)
+
+    # maps = Hashmaps()
+    # maps._create_hash_from_matrix(np_array)
+    puzzle = Puzzle(np_array, array2)
 
 
-# helper.create_node_from_operator(test_node, OPERATION_RIGHT, np_array)
-
-# maps = Hashmaps()
-# maps._create_hash_from_matrix(np_array)
-puzzle = Puzzle(np_array, array2)
+if __name__ == '__main__':
+    cProfile.run('main()')
