@@ -62,6 +62,42 @@ Number of processed nodes: 191
 Peak memory usage 159.59375 KB
 
 
+***Starting test3_1****
+
+Testing heuristic calculation 1
+Testing for starting board: [[1, 2, 3], [4, 5, 6], [7, 8, 'm']] , end board: [[7, 8, 6], [5, 4, 3], [2, 'm', 1]]
+
+SOLUTION:
+Solution for [['1' '2' '3']
+ ['4' '5' '6']
+ ['7' '8' 'm']] array to move into [['7' '8' '6']
+ ['5' '4' '3']
+ ['2' 'm' '1']] array does not exist!
+
+TEST RESULTS:
+Time it took to find a solution: 381.2927715778351 seconds
+Number of processed nodes: 181439
+Peak memory usage 13877.15625 KB
+
+
+***Starting test3_2****
+
+Testing heuristic calculation 2
+Testing for starting board: [[1, 2, 3], [4, 5, 6], [7, 8, 'm']] , end board: [[7, 8, 6], [5, 4, 3], [2, 'm', 1]]
+
+SOLUTION:
+Solution for [['1' '2' '3']
+ ['4' '5' '6']
+ ['7' '8' 'm']] array to move into [['7' '8' '6']
+ ['5' '4' '3']
+ ['2' 'm' '1']] array does not exist!
+
+TEST RESULTS:
+Time it took to find a solution: 313.05966329574585 seconds
+Number of processed nodes: 181439
+Peak memory usage 13872.40625 KB
+
+
 ***Starting test4_1****
 
 Testing heuristic calculation 1
@@ -160,38 +196,3 @@ Number of processed nodes: 992
 Peak memory usage 762.6875 KB
 
 
-
-***Starting test3_1****
-
-Testing heuristic calculation 1
-Testing for starting board: [[1, 2, 3], [4, 5, 6], [7, 8, 'm']] , end board: [[7, 8, 6], [5, 4, 3], [2, 'm', 1]]
-
-SOLUTION:
-Solution for [['1' '2' '3']
- ['4' '5' '6']
- ['7' '8' 'm']] array to move into [['7' '8' '6']
- ['5' '4' '3']
- ['2' 'm' '1']] array does not exist!
-
-TEST RESULTS:
-Time it took to find a solution: 381.2927715778351 seconds
-Number of processed nodes: 181439
-Peak memory usage 13877.15625 KB
-
-
-***Starting test3_2****
-
-Testing heuristic calculation 2
-Testing for starting board: [[1, 2, 3], [4, 5, 6], [7, 8, 'm']] , end board: [[7, 8, 6], [5, 4, 3], [2, 'm', 1]]
-
-SOLUTION:
-Solution for [['1' '2' '3']
- ['4' '5' '6']
- ['7' '8' 'm']] array to move into [['7' '8' '6']
- ['5' '4' '3']
- ['2' 'm' '1']] array does not exist!
-
-TEST RESULTS:
-Time it took to find a solution: 313.05966329574585 seconds
-Number of processed nodes: 181439
-Peak memory usage 13872.40625 KB

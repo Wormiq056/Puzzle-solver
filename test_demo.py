@@ -83,44 +83,6 @@ def test2_2():
     print("Peak memory usage {} KB\n\n".format(memory / 1024))
 
 
-def test3_1():
-    start_board = [[1, 2, 3], [4, 5, 6], [7, 8, EMPTY_TILE]]
-    end_board = [[7, 8, 6], [5, 4, 3], [2, EMPTY_TILE, 1]]
-    print("***Starting test3_1****\n")
-    print("Testing heuristic calculation 1")
-    print("Testing for starting board: {} , end board: {}\n".format(start_board, end_board))
-    print("SOLUTION:")
-    t = time.time()
-    tracemalloc.start()
-    puzzle = Puzzle(start_board, end_board, HEURISTIC_1)
-    memory = tracemalloc.get_tracemalloc_memory()
-    tracemalloc.stop()
-    elapsed_time = time.time() - t
-    print("\nTEST RESULTS:")
-    print("Time it took to find a solution: {} seconds".format(elapsed_time))
-    print("Number of processed nodes: {}".format(len(puzzle.hashmaps.processed_nodes)))
-    print("Peak memory usage {} KB\n\n".format(memory / 1024))
-
-
-def test3_2():
-    start_board = [[1, 2, 3], [4, 5, 6], [7, 8, EMPTY_TILE]]
-    end_board = [[7, 8, 6], [5, 4, 3], [2, EMPTY_TILE, 1]]
-    print("***Starting test3_2****\n")
-    print("Testing heuristic calculation 2")
-    print("Testing for starting board: {} , end board: {}\n".format(start_board, end_board))
-    print("SOLUTION:")
-    t = time.time()
-    tracemalloc.start()
-    puzzle = Puzzle(start_board, end_board, HEURISTIC_2)
-    memory = tracemalloc.get_tracemalloc_memory()
-    tracemalloc.stop()
-    elapsed_time = time.time() - t
-    print("\nTEST RESULTS:")
-    print("Time it took to find a solution: {} seconds".format(elapsed_time))
-    print("Number of processed nodes: {}".format(len(puzzle.hashmaps.processed_nodes)))
-    print("Peak memory usage {} KB\n\n".format(memory / 1024))
-
-
 def test4_1():
     start_board = [[EMPTY_TILE, 1, 2, 3, 4], [5, 6, 7, 8, 9]]
     end_board = [[4, 2, 5, EMPTY_TILE, 7], [9, 3, 8, 1, 6]]
@@ -232,7 +194,7 @@ def test6_2():
     print("\nTEST RESULTS:")
     print("Time it took to find a solution: {} seconds".format(elapsed_time))
     print("Number of processed nodes: {}".format(len(puzzle.hashmaps.processed_nodes)))
-    print("Peak memory usage {} KB\n\n".format(memory / 1024))
+    print("Peak memory usage {} KB".format(memory / 1024))
 
 
 def start_testing():
@@ -240,8 +202,6 @@ def start_testing():
     test1_2()
     test2_1()
     test2_2()
-    test3_1()
-    test3_2()
     test4_1()
     test4_2()
     test5_1()
