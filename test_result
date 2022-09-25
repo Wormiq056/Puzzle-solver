@@ -1,68 +1,197 @@
-   Ordered by: standard name
+***Starting test1_1****
 
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-   483837    0.366    0.000    5.308    0.000 8-puzzle.py:106(create_node)
-   483837    2.789    0.000    9.223    0.000 8-puzzle.py:111(create_node_from_operator)
-   181439    0.853    0.000   19.716    0.000 8-puzzle.py:140(process_node)
-        1    0.000    0.000  260.003  260.003 8-puzzle.py:158(__init__)
-        1    0.001    0.001  260.003  260.003 8-puzzle.py:165(solve)
-        1    0.400    0.400  260.003  260.003 8-puzzle.py:171(_solve)
-   483838    0.277    0.000    0.613    0.000 8-puzzle.py:18(__init__)
-        1    0.000    0.000  260.003  260.003 8-puzzle.py:193(main)
-        1    0.000    0.000    0.000    0.000 8-puzzle.py:30(__init__)
-  1088635    5.887    0.000    5.887    0.000 8-puzzle.py:35(_create_hash_from_matrix)
-   181439    0.164    0.000    1.042    0.000 8-puzzle.py:42(add_processed)
-   483837    0.342    0.000    3.131    0.000 8-puzzle.py:46(check_processed)
-   241920    0.298    0.000    1.403    0.000 8-puzzle.py:53(add_unprocessed)
-   181439    0.448    0.000  239.849    0.001 8-puzzle.py:61(find_best_next_node)
-        1    0.000    0.000    0.000    0.000 8-puzzle.py:79(__init__)
-   483838    4.190    0.000    4.330    0.000 8-puzzle.py:83(calc_heuristic)
-   181439    3.439    0.000    4.045    0.000 8-puzzle.py:91(find_possible_operators)
-   665276    0.368    0.000    1.370    0.000 <__array_function__ internals>:177(where)
-        1    0.004    0.004  260.007  260.007 <string>:1(<module>)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:1575(_array_str_implementation)
-       18    0.000    0.000    0.000    0.000 arrayprint.py:397(repr_format)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:403(_get_formatdict)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:423(<lambda>)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:452(_get_format_function)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:506(wrapper)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:523(_array2string)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:561(array2string)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:64(_make_options_dict)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:72(<dictcomp>)
-       18    0.000    0.000    0.000    0.000 arrayprint.py:739(_extendLine)
-       18    0.000    0.000    0.000    0.000 arrayprint.py:753(_extendLine_pretty)
-        2    0.000    0.000    0.000    0.000 arrayprint.py:780(_formatArray)
-     26/2    0.000    0.000    0.000    0.000 arrayprint.py:789(recurser)
-   665276    0.109    0.000    0.109    0.000 multiarray.py:341(where)
-        2    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
-        1    0.000    0.000  260.007  260.007 {built-in method builtins.exec}
-        2    0.000    0.000    0.000    0.000 {built-in method builtins.id}
-       10    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
-  2661256    0.223    0.000    0.223    0.000 {built-in method builtins.len}
-        2    0.000    0.000    0.000    0.000 {built-in method builtins.locals}
-        6    0.000    0.000    0.000    0.000 {built-in method builtins.max}
-   181439  237.895    0.001  237.895    0.001 {built-in method builtins.min}
-        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
-       18    0.000    0.000    0.000    0.000 {built-in method builtins.repr}
-   483842    0.336    0.000    0.336    0.000 {built-in method numpy.array}
-        2    0.000    0.000    0.000    0.000 {built-in method numpy.asarray}
-   665276    0.893    0.000    0.893    0.000 {built-in method numpy.core._multiarray_umath.implement_array_function}
-        2    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
-   483837    0.054    0.000    0.054    0.000 {method 'append' of 'list' objects}
-        2    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
-   483837    0.281    0.000    0.281    0.000 {method 'copy' of 'numpy.ndarray' objects}
-        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
-        2    0.000    0.000    0.000    0.000 {method 'discard' of 'set' objects}
-        1    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
-   483837    0.245    0.000    0.245    0.000 {method 'get' of 'dict' objects}
-        2    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
-   181439    0.117    0.000    0.117    0.000 {method 'pop' of 'dict' objects}
-        8    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
-       18    0.000    0.000    0.000    0.000 {method 'splitlines' of 'str' objects}
-        2    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
-   181439    0.029    0.000    0.029    0.000 {method 'values' of 'dict' objects}
+Testing heuristic calculation 1
+Testing for starting board: [['m', 1, 2], [3, 4, 5]] , end board: [[4, 'm', 5], [3, 1, 2]]
+
+SOLUTION:
+[['4' 'm' '5']
+ ['3' '1' '2']]
+Order of operators to reach wanted board: ['LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT']
+
+TEST RESULTS:
+Time it took to find a solution: 0.04399418830871582 seconds
+Number of processed nodes: 188
+Peak memory usage 103.15625 KB
 
 
+***Starting test1_2****
 
-Process finished with exit code 0
+Testing heuristic calculation 2
+Testing for starting board: [['m', 1, 2], [3, 4, 5]] , end board: [[4, 'm', 5], [3, 1, 2]]
+
+SOLUTION:
+[['4' 'm' '5']
+ ['3' '1' '2']]
+Order of operators to reach wanted board: ['UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT']
+
+TEST RESULTS:
+Time it took to find a solution: 0.04200267791748047 seconds
+Number of processed nodes: 119
+Peak memory usage 83.53125 KB
+
+
+***Starting test2_1****
+
+Testing heuristic calculation 1
+Testing for starting board: [['m', 1, 2, 3], [4, 5, 6, 7]] , end board: [[2, 7, 6, 5], [1, 3, 'm', 4]]
+
+SOLUTION:
+[['2' '7' '6' '5']
+ ['1' '3' 'm' '4']]
+Order of operators to reach wanted board: ['LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT']
+
+TEST RESULTS:
+Time it took to find a solution: 0.059999704360961914 seconds
+Number of processed nodes: 191
+Peak memory usage 114.46875 KB
+
+
+***Starting test2_2****
+
+Testing heuristic calculation 2
+Testing for starting board: [['m', 1, 2, 3], [4, 5, 6, 7]] , end board: [[2, 7, 6, 5], [1, 3, 'm', 4]]
+
+SOLUTION:
+[['2' '7' '6' '5']
+ ['1' '3' 'm' '4']]
+Order of operators to reach wanted board: ['LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT']
+
+TEST RESULTS:
+Time it took to find a solution: 0.08959817886352539 seconds
+Number of processed nodes: 191
+Peak memory usage 159.59375 KB
+
+
+***Starting test4_1****
+
+Testing heuristic calculation 1
+Testing for starting board: [['m', 1, 2, 3, 4], [5, 6, 7, 8, 9]] , end board: [[4, 2, 5, 'm', 7], [9, 3, 8, 1, 6]]
+
+SOLUTION:
+[['4' '2' '5' 'm' '7']
+ ['9' '3' '8' '1' '6']]
+Order of operators to reach wanted board: ['LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT']
+
+TEST RESULTS:
+Time it took to find a solution: 0.6666049957275391 seconds
+Number of processed nodes: 2084
+Peak memory usage 1347.21875 KB
+
+
+***Starting test4_2****
+
+Testing heuristic calculation 2
+Testing for starting board: [['m', 1, 2, 3, 4], [5, 6, 7, 8, 9]] , end board: [[4, 2, 5, 'm', 7], [9, 3, 8, 1, 6]]
+
+SOLUTION:
+[['4' '2' '5' 'm' '7']
+ ['9' '3' '8' '1' '6']]
+Order of operators to reach wanted board: ['UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT']
+
+TEST RESULTS:
+Time it took to find a solution: 0.6305654048919678 seconds
+Number of processed nodes: 1124
+Peak memory usage 785.8125 KB
+
+
+***Starting test5_1****
+
+Testing heuristic calculation 1
+Testing for starting board: [['m', 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11]] , end board: [[7, 1, 4, 6], [2, 3, 'm', 11], [10, 9, 8, 5]]
+
+SOLUTION:
+[['7' '1' '4' '6']
+ ['2' '3' 'm' '11']
+ ['10' '9' '8' '5']]
+Order of operators to reach wanted board: ['UP', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+
+TEST RESULTS:
+Time it took to find a solution: 0.683588981628418 seconds
+Number of processed nodes: 1770
+Peak memory usage 1394.90625 KB
+
+
+***Starting test5_2****
+
+Testing heuristic calculation 2
+Testing for starting board: [['m', 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11]] , end board: [[7, 1, 4, 6], [2, 3, 'm', 11], [10, 9, 8, 5]]
+
+SOLUTION:
+[['7' '1' '4' '6']
+ ['2' '3' 'm' '11']
+ ['10' '9' '8' '5']]
+Order of operators to reach wanted board: ['LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT']
+
+TEST RESULTS:
+Time it took to find a solution: 2.2093007564544678 seconds
+Number of processed nodes: 2692
+Peak memory usage 2459.625 KB
+
+
+***Starting test6_1****
+
+Testing heuristic calculation 1
+Testing for starting board: [['m', 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11]] , end board: [[4, 'm', 9, 11, 10, 8], [3, 5, 2, 1, 6, 7]]
+
+SOLUTION:
+[['4' 'm' '9' '11' '10' '8']
+ ['3' '5' '2' '1' '6' '7']]
+Order of operators to reach wanted board: ['LEFT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'RIGHT']
+
+TEST RESULTS:
+Time it took to find a solution: 22.08319091796875 seconds
+Number of processed nodes: 28120
+Peak memory usage 19753.125 KB
+
+
+***Starting test6_2****
+
+Testing heuristic calculation 2
+Testing for starting board: [['m', 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11]] , end board: [[4, 'm', 9, 11, 10, 8], [3, 5, 2, 1, 6, 7]]
+
+SOLUTION:
+[['4' 'm' '9' '11' '10' '8']
+ ['3' '5' '2' '1' '6' '7']]
+Order of operators to reach wanted board: ['LEFT', 'LEFT', 'LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'RIGHT']
+
+TEST RESULTS:
+Time it took to find a solution: 0.7013819217681885 seconds
+Number of processed nodes: 992
+Peak memory usage 762.6875 KB
+
+
+
+***Starting test3_1****
+
+Testing heuristic calculation 1
+Testing for starting board: [[1, 2, 3], [4, 5, 6], [7, 8, 'm']] , end board: [[7, 8, 6], [5, 4, 3], [2, 'm', 1]]
+
+SOLUTION:
+Solution for [['1' '2' '3']
+ ['4' '5' '6']
+ ['7' '8' 'm']] array to move into [['7' '8' '6']
+ ['5' '4' '3']
+ ['2' 'm' '1']] array does not exist!
+
+TEST RESULTS:
+Time it took to find a solution: 381.2927715778351 seconds
+Number of processed nodes: 181439
+Peak memory usage 13877.15625 KB
+
+
+***Starting test3_2****
+
+Testing heuristic calculation 2
+Testing for starting board: [[1, 2, 3], [4, 5, 6], [7, 8, 'm']] , end board: [[7, 8, 6], [5, 4, 3], [2, 'm', 1]]
+
+SOLUTION:
+Solution for [['1' '2' '3']
+ ['4' '5' '6']
+ ['7' '8' 'm']] array to move into [['7' '8' '6']
+ ['5' '4' '3']
+ ['2' 'm' '1']] array does not exist!
+
+TEST RESULTS:
+Time it took to find a solution: 313.05966329574585 seconds
+Number of processed nodes: 181439
+Peak memory usage 13872.40625 KB

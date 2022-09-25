@@ -3,18 +3,18 @@ import cProfile
 from hashlib import sha256
 from operator import attrgetter
 
-OPERATION_DOWN = 'DOLE'
-OPERATION_UP = 'HORE'
-OPERATION_LEFT = 'VLAVO'
-OPERATION_RIGHT = 'VPRAVO'
-
+OPERATION_DOWN = 'DOWN'
+OPERATION_UP = 'UP'
+OPERATION_LEFT = 'LEFT'
+OPERATION_RIGHT = 'RIGHT'
+EMTPY_TILE = 'm'
 
 class Node:
     """
-    Body of "uzol" which stores necessery information.
+    Body of node which stores necessary information.
     matrix = current state of board
     parent = pointer to its parent node from which matrix was created
-    heurisitc_value = calculated heuristic from end point of matrix
+    heuristic_value = calculated heuristic from end point of matrix
     """
 
     def __init__(self, matrix: np.array, parent, last_operator: str, heuristic_value: int) -> None:
@@ -36,12 +36,11 @@ class Hashmaps:
         self.unprocessed_nodes = {}
 
     def _create_hash_from_matrix(self, matrix: np.array) -> str:
+        """
+        function that creates unique hash for given matrix with the help of sha256
+        this hash is used to store nodes into dictionaries
+        """
         hash = (sha256(matrix).hexdigest())
-        # hash = ''
-        # for _ in matrix:
-        #     for element in _:
-        #         hash += element
-        # print(hash)
         return hash
 
     def add_processed(self, node: Node) -> None:
@@ -67,7 +66,7 @@ class Hashmaps:
         """
         method that find the best next node by sorting unprocessed_nodes by heuristic value
         then return that node with lowest heuristic value to be processed
-        :return: Node with lowest heurisitc value
+        :return: Node with lowest heuristic value
         """
         lowest_heuristic_node = min(self.unprocessed_nodes.values(), key=attrgetter('heuristic_value'))
         hash = self._create_hash_from_matrix(lowest_heuristic_node.matrix)
@@ -90,18 +89,26 @@ class Helper:
             self.calc_heuristic = self.heurisitc_2
 
     def heuristic_1(self, current_matrix: np.array) -> int:
+        """
+        calculation of first type of heuristic (correct position)
+        """
         heuristic = 0
         for i in range(len(current_matrix)):
-            for j in range(len(current_matrix)):
+            for j in range(len(current_matrix[i])):
+                if current_matrix[i][j] == EMTPY_TILE:
+                    continue
                 if current_matrix[i][j] != self.end[i][j]:
                     heuristic += 1
         return heuristic
 
     def heurisitc_2(self, current_matrix: np.array) -> int:
+        """
+        calculation of second type of heuristic (X,Y offset)
+        """
         heuristic = 0
         for i in range(len(current_matrix)):
             for j in range(len(current_matrix[i])):
-                if current_matrix[i][j] == 'm':
+                if current_matrix[i][j] == EMTPY_TILE:
                     continue
                 else:
                     index_y, index_x = np.where(self.end == current_matrix[i][j])
@@ -110,10 +117,13 @@ class Helper:
         return heuristic
 
     def find_possible_operators(self, matrix: np.array) -> list:
+        """
+        method that finds next possible operators by checking where empty tile is located on board
+        """
         possible_operators = []
         x = len(matrix[0]) - 1
         y = len(matrix) - 1
-        index_y, index_x = np.where(matrix == 'm')
+        index_y, index_x = np.where(matrix == EMTPY_TILE)
         if index_x + 1 <= x:
             possible_operators.append(OPERATION_LEFT)
         if index_x - 1 >= 0:
@@ -125,12 +135,16 @@ class Helper:
         return possible_operators
 
     def create_node(self, matrix: np.array, parent_node: Node, operator_used: str) -> Node:
-        node_heuristic = self.calc_heuristic(matrix)
+        node_heuristic = self.calc_heuristic(matrix)  # calcuting heuristic for new node
         new_node = Node(matrix, parent_node, operator_used, node_heuristic)
         return new_node
 
     def create_node_from_operator(self, parent_node: Node, possible_operator: str) -> Node:
-        index_y, index_x = np.where(parent_node.matrix == 'm')
+        """
+        method that returns children node from parent node by creating new matrix and changing tiles based on operator
+        given
+        """
+        index_y, index_x = np.where(parent_node.matrix == EMTPY_TILE)
         new_matrix = parent_node.matrix.copy()
         if possible_operator == OPERATION_UP:
             a = new_matrix[index_y[0]][index_x[0]]
@@ -157,6 +171,10 @@ class Helper:
             return self.create_node(new_matrix, parent_node, OPERATION_RIGHT)
 
     def process_node(self, current_node: Node) -> None:
+        """
+        method that processes node by creating it's children and adding current node to processed_nodes dictionary
+        and created children nodes to yet unprocessed_nodes dictionary
+        """
         possible_operators = self.find_possible_operators(current_node.matrix)
         for i in range(len(possible_operators)):
             children_node = self.create_node_from_operator(current_node, possible_operators[i])
@@ -175,7 +193,7 @@ class Puzzle:
     2. if its not solvable it informs that wanted matrix its not possible to achieve
     """
 
-    def __init__(self, start: np.array, end: np.array, heuristic_config: int) -> None:
+    def __init__(self, start: list, end: list, heuristic_config: int) -> None:
         self.start = np.array(start)
         self.end = np.array(end)
         self.hashmaps = Hashmaps()
@@ -183,12 +201,18 @@ class Puzzle:
         self.solve()
 
     def solve(self) -> None:
+        """
+        method that creates first root node that is later passed to _solve method that starts the algorithm
+        """
         root_heuristic = self.helper.calc_heuristic(self.start)
-
-        root_node = Node(self.start, None, "start", root_heuristic)
+        root_node = Node(self.start, None, "", root_heuristic)
         self._solve(root_node)
 
-    def _solve(self, current_node: Node) -> None:
+    def _solve(self, current_node: Node) -> bool:
+        """
+        main method processes node and find best next node to processes until heuristic_value = 0 or no more unprocessed
+        nodes exists meaning possible solution does not exist
+        """
         found_solution = True
         while current_node.heuristic_value != 0:
             self.helper.process_node(current_node)
@@ -199,30 +223,33 @@ class Puzzle:
                 break
         if found_solution == True:
             solution = self._create_solution(current_node)
+            print("Order of operators to reach wanted board: "+str(solution))
+            return True
         else:
             print("Solution for {} array to move into {} array does not exist!".format(self.start, self.end))
+            return False
 
     def _create_solution(self, node: Node) -> list:
+        """
+        method that creates a solution by going back in the tree until it reaches root node
+        """
         solution = []
-        while node.last_operator != 'start':
+        while node.last_operator != '':
             solution.insert(0, node.last_operator)
             node = node.parent
-        print(solution)
         return solution
 
 
 def main():
-    np_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 'm']])
+    np_array =[[1, 2, 3], [4, 5, 6], [7, 8, 'm']]
     # array = np.array([[7, 8, 6], [5, 4, 3], [2, 'm', 1]])
-    array2 = np.array([[1, 2, 3], [4, 6, 8], [7, 5, 'm']])  # existuje solution
-    # array2 = np.array([[7,8,6],[5,4,3],[2,'m',1]]) #neexistuje solution
+    #array2 = [[1, 2, 3], [4, 6, 8], [7, 5, 'm']]  # existuje solution
+    array2 = np.array([[7,8,6],[5,4,3],[2,'m',1]]) #neexistuje solution
     # test_node = Node(np_array, None, 'vlavo', 0)
     # array2 = np.array([[3,2,1,'m'],[11,6,5,4],[7,10,9,8]])
     # helper.create_node_from_operator(test_node, OPERATION_RIGHT, np_array)
     # maps = Hashmaps()
     # maps._create_hash_from_matrix(np_array)
-    puzzle = Puzzle(np_array, array2, 2)
+    #puzzle = Puzzle(np_array, array2, 2)
 
 
-if __name__ == '__main__':
-    cProfile.run('main()')
