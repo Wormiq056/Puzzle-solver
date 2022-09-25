@@ -1,5 +1,4 @@
 import numpy as np
-import cProfile
 from hashlib import sha256
 from operator import attrgetter
 
@@ -8,6 +7,7 @@ OPERATION_UP = 'UP'
 OPERATION_LEFT = 'LEFT'
 OPERATION_RIGHT = 'RIGHT'
 EMTPY_TILE = 'm'
+
 
 class Node:
     """
@@ -86,7 +86,7 @@ class Helper:
         if heurisitc_config == 1:
             self.calc_heuristic = self.heuristic_1
         else:
-            self.calc_heuristic = self.heurisitc_2
+            self.calc_heuristic = self.heuristic_2
 
     def heuristic_1(self, current_matrix: np.array) -> int:
         """
@@ -101,7 +101,7 @@ class Helper:
                     heuristic += 1
         return heuristic
 
-    def heurisitc_2(self, current_matrix: np.array) -> int:
+    def heuristic_2(self, current_matrix: np.array) -> int:
         """
         calculation of second type of heuristic (X,Y offset)
         """
@@ -221,9 +221,9 @@ class Puzzle:
             if len(self.hashmaps.unprocessed_nodes) == 0:
                 found_solution = False
                 break
-        if found_solution == True:
+        if found_solution:
             solution = self._create_solution(current_node)
-            print("Order of operators to reach wanted board: "+str(solution))
+            print("Order of operators to reach wanted board: " + str(solution))
             return True
         else:
             print("Solution for {} array to move into {} array does not exist!".format(self.start, self.end))
@@ -238,18 +238,5 @@ class Puzzle:
             solution.insert(0, node.last_operator)
             node = node.parent
         return solution
-
-
-def main():
-    np_array =[[1, 2, 3], [4, 5, 6], [7, 8, 'm']]
-    # array = np.array([[7, 8, 6], [5, 4, 3], [2, 'm', 1]])
-    #array2 = [[1, 2, 3], [4, 6, 8], [7, 5, 'm']]  # existuje solution
-    array2 = np.array([[7,8,6],[5,4,3],[2,'m',1]]) #neexistuje solution
-    # test_node = Node(np_array, None, 'vlavo', 0)
-    # array2 = np.array([[3,2,1,'m'],[11,6,5,4],[7,10,9,8]])
-    # helper.create_node_from_operator(test_node, OPERATION_RIGHT, np_array)
-    # maps = Hashmaps()
-    # maps._create_hash_from_matrix(np_array)
-    #puzzle = Puzzle(np_array, array2, 2)
 
 
